@@ -1,0 +1,32 @@
+import { LitElement, html, css } from 'lit-element';
+
+class GalarzaPanel extends LitElement {
+  constructor() {
+    super();
+    this.celsius = 0;
+    this.farenheit = 32;
+  }
+  static get properties(){
+    return {
+        celsius: { type: Number },
+        fahrenheit: { type: Number },
+    }
+  }
+  render() {
+    return html`
+        <h2>Conversor de Temperatura</h2>
+        <label>Celsius: <input @input="${this.actualizarCelsius}" type="number" .value=${String(this.celsius)}></label>
+        <label>Farenheit: <input type="number" .value=${String(this.farenheit)} @input=${this.actualizarFarenheit}></label>
+    `;
+  }
+  actualizarCelsius(e) {
+    this.celsius = e.target.value;
+    this.farenheit = this.celsius * 9 / 5 + 32;
+  }
+  actualizarFarenheit(e) {
+    this.farenheit = e.target.value;
+    this.celsius = (this.farenheit - 32) * 5 / 9;
+  }
+}
+
+customElements.define('galarza-panel', GalarzaPanel);
