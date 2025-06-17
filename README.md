@@ -89,6 +89,13 @@ Abre el navegador: Se abrirá automáticamente en http://localhost:8080.
 
 # Capturas de pantalla
 
+## Componente Color Preview en ejecución
+
+![Captura uso de componente - color preview](img/ColorPreview.png)
+
+## Seleccion de cualquier color mediante el componente  
+
+![Captura uso de componente - color preview](img/ColorPreview2.png)
 
 
 ## Error	                                          Solucion 
