@@ -95,20 +95,20 @@ class CamposComponent extends LitElement {
         <input type="email" .value=${this.email} @input=${e => this.email = e.target.value}>
       </label>
       <label>Edad:
-        <input type="number" .value=${this.age} @input=${e => this.age = parseInt(e.target.value)}>
+        <input type="number" .value=${String(this.age)} @input=${e => this.age = Number(e.target.value)}>
       </label>
 
       <button @click=${this.guardarPerfil}>Guardar</button>
 
       <div class="output">
-        <p>Nombre: <strong>${this.name}</strong>.</p>
+        <p>Nombre: <strong>${this.name}</strong></p>
         <p>Correo: <em>${this.email}</em></p>
         <p>Edad: <strong>${this.age}</strong> años</p>
       </div>
 
       ${this.saved ? html`
         <div class="saved-message success">
-          <p> ¡Perfil guardado correctamente!</p>
+          <p> Perfil guardado</p>
           <p> Datos guardados:</p>
           <ul>
             <li><strong>Nombre:</strong> ${this.savedName}</li>
