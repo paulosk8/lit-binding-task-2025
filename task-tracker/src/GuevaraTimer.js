@@ -43,7 +43,7 @@ class TaskTracker extends LitElement {
 
   toggleTask(task) {
     task.done = !task.done;
-    this.tasks = [...this.tasks]; // Trigger update
+    this.tasks = [...this.tasks];
   }
 }
 
