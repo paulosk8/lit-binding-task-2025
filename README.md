@@ -1,87 +1,74 @@
-# lit-binding-task-2025
+# Quote Generator
 
-Tarea académica para implementar data binding usando LitElemen
-Nombre de la tarea
+## Nombre del componente y objetivo
 
-# Tarea Académica: Implementar Data Binding en un Componente usando LitElement
+**Componente:** `<quote-generator>`
 
-## Asignatura: Desarrollo Web Avanzado
-
-**Docente:** [Nombre del docente]  
-**Periodo:** 2025-1
+**Objetivo:**  
+Crear un componente web personalizado utilizando LitElement que muestre frases motivacionales aleatorias. El componente implementa data binding para actualizar dinámicamente la cita mostrada al usuario cuando se presiona un botón.
 
 ---
 
-## Objetivo de la tarea
+## Explicación técnica del binding usado
 
-Desarrollar un componente web utilizando LitElement que implemente correctamente el **data binding** (vinculación de datos) unidireccional y/o bidireccional. Esta tarea pondrá en práctica conceptos clave como el uso de decoradores `@property`, la reactividad del DOM, y el ciclo de vida de un componente.
+El componente extiende `LitElement` y utiliza:
 
----
+- **@property (`static properties`)** para declarar la propiedad reactiva `quote` de tipo String.  
+  Esto permite que cuando se actualice `quote`, el componente se re-renderice automáticamente en el DOM.
 
-## Descripción de la actividad
+- **render()** devuelve una plantilla HTML que muestra la cita actual dentro de un párrafo y un botón que dispara un evento.
 
-Cada estudiante deberá:
+- **Eventos:**  
+  El botón tiene un listener de evento `@click` que llama al método `updateQuote()`, el cual cambia el valor de `quote` con una frase aleatoria tomada de un arreglo interno.
 
-1. Clonar este repositorio.
-2. Crear una rama siguiendo la convención de GitHub Flow:  
-   `feature/nombre-apellido`
-3. Desarrollar un componente dentro de la carpeta `src/`, usando LitElement.
-4. Mostrar el componente dentro del archivo `index.html`.
-5. Documentar el desarrollo, decisiones y errores en el archivo `README.md`.
-6. Hacer commit de forma frecuente con mensajes descriptivos.
-7. Crear un Pull Request desde su rama hacia `main`.
-8. No se permite realizar commits directamente en `main`.
+Gracias a esta estructura, el DOM es reactivo y siempre refleja el valor actual de la propiedad `quote`.
 
 ---
 
-## Estructura esperada del proyecto
+## Pasos de instalación y ejecución
 
-lit-binding-task-2025/
-├── index.html
-├── README.md ← Documentación individual
-└── src/
-└── MiComponente.js ← Archivo del componente
+1. **Inicializar el proyecto npm**  
+   Para crear el archivo `package.json` con la configuración básica por defecto se ocupa el siguiente comando
+   npm init -y
 
----
+2. **Instalar LitElement**
+    Para poder instalar la librería LitElement, necesaria para crear el componente web se ocuapa el siguiente comando:
+    npm install lit-element
 
-## Lista de estudiantes y asignaciones
+3. **Instalar herramientas de desarrollo para empaquetado con Webpack**
+    Para empaquetar y servir el proyecto localmente se deben instalar las siguientes dependencias de desarrollo y se ocuapa el siguiente comando:
+    npm install --save-dev webpack webpack-cli webpack-dev-server html-webpack-plugin
 
-Cada estudiante desarrollará un componente con nombre personalizado en base a su apellido. Por ejemplo: `CamposComponent`, `DuranCard`, etc.
+4. **Para ejecutar el proyecto en modo desarrollo y servirlo localmente**
+    Para levantar un servidor local y probar el componente en el navegador se usa el siguiente comando:
+    npm run serve
 
-| Estudiante                          | Componente sugerido     |
-| ----------------------------------- | ----------------------- |
-| ANDERSON ARQUIMIDES CAMPOS ALVARADO | `CamposComponent.js`    |
-| GIOVANNY FRANCISCO DURAN SANCHEZ    | `DuranCard.js`          |
-| JOHN FERNANDO GALARZA JARAMILLO     | `GalarzaPanel.js`       |
-| MATHIAS ELIAN GUALPA RIVERA         | `GualpaViewer.js`       |
-| JORDAN ALEXANDER GUEVARA CHALIAL    | `GuevaraTimer.js`       |
-| ANTHONY GEOVANNY MEJIA GAIBOR       | `MejiaInput.js`         |
-| JORDY PAUL MEJIA PALACIOS           | `MejiaPalaciosList.js`  |
-| CAMILA ANTONELA OBANDO BUITRON      | `ObandoSwitch.js`       |
-| ANDRES DAVID PANTOJA CHAVEZ         | `PantojaCounter.js`     |
-| ALEXANDER MIGUEL QUIZHPE CUZME      | `QuizhpeToggle.js`      |
-| GISSELA ELISA SALDARRIAGA SALAZAR   | `SaldarriagaDisplay.js` |
-| DARWIN ANDRES TOAPANTA PAEZ         | `ToapantaModal.js`      |
-| JENNIFER NAYELI TORRES MORETA       | `TorresSlider.js`       |
+## Capturas de pantalla del funcionamiento
+  Primero, se levanta el servidor local con el comando `npm run serve`.  
+  ![Servidor local levantado](./quote-generator/capturas/ejecutarservidorlocal.png)  
 
----
+  Luego, al abrir la URL en el navegador, se muestra la interfaz del componente con una frase aleatoria y el botón para generar nuevas frases.  
+  ![Interfaz Principal](./quote-generator/capturas/interfazprincipal.png)  
 
-## Reglas del flujo de trabajo (GitHub Flow)
+  Al presionar nosotros el boton de Nueva Frase se va ir cambiando la frase de manera aleatoria 
+  ![Uso del boton nueva frase](./quote-generator/capturas/usodelboton.png)  
 
-1. Siempre trabaje desde su propia rama: `feature/nombre-apellido`.
-2. Use `git commit` frecuentemente con mensajes claros.
-3. Suba su rama (`git push`) al repositorio.
-4. Cree un **Pull Request (PR)** con el título:  
-   `PR: Nombre Apellido`
-5. El docente revisará y aceptará el PR tras validar funcionalidad, estructura y documentación.
+  Declaración de la propiedad quote como reactiva LitElement detecta los cambios en esta propiedad y actualiza automáticamente el DOM cuando su valor cambia.
+  ![Uso de @Propety](./quote-generator/capturas/usode@property.png)  
 
----
+  Método render() que genera el contenido HTML del componente. El valor de quote se inyecta dinámicamente y cambia cada vez que se actualiza la propiedad, gracias al data binding.
+  ![Uso de Render](./quote-generator/capturas/usoderender.png) 
 
-## Instrucciones para correr el proyecto localmente
+  Para finalizar, las frases motivacionales utilizadas en el componente fueron tomadas de la siguiente página web:
 
-1. Clonar el repositorio:
+  📌[Grupo Billingham - Frases motivadoras para estudiantes](https://www.grupobillingham.com/blog/frases-motivadoras-estudiantes/)
 
-```bash
-git clone https://github.com/paulosk8/lit-binding-task-2025
-cd lit-binding-task-2025
-```
+  ![Fuente de las frases](./quote-generator/capturas/frases.png)
+
+## Errores comunes enfrentados y cómo se solucionaron
+
+| Error encontrado | Solución aplicada |
+|------------------|--------------------|
+| No se actualizaba la cita al hacer clic | Se corrigió el binding usando `@click=\${this.updateQuote}` |
+| Error al importar LitElement | Se configuró Webpack correctamente para soportar módulos ES |
+| Se repetían frases muy seguido | Se identificó como limitación del generador aleatorio; se propone mejora futura |
