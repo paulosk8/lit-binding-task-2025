@@ -59,14 +59,20 @@ npm install
 El componente <font-size-adjuster> implementa correctamente el data binding utilizando:
 
 Propiedades reactivas:
+Se declara fontSize como propiedad observable con tipo Number:
 ![Se declara fontSize como propiedad observable con tipo Number:](images/fontSize.png)
 
 DOM reactivo:
+
+Dentro del `render()` se utiliza ${this.fontSize} para actualizar dinámicamente el valor visible en el DOM:
 ![Dentro del `render()` se utiliza ${this.fontSize} para actualizar dinámicamente el valor visible en el DOM:](images/domReact.png)
 
 Manejo de eventos:
+
+Se maneja el evento `@input` del slider para actualizar `fontSize` en tiempo real:
 ![Se maneja el evento `@input` del slider para actualizar `fontSize` en tiempo real:](images/eventos.png)
 
+Método para manejar el evento 'input' del slider.
 ![Método para manejar el evento 'input' del slider.](images/handleSlider.png)
 
 ## 🏃‍♀️ Ejecución del proyecto 
@@ -79,6 +85,9 @@ Abre tu navegador por lo general con el siguiente link:
 http://localhost:8080
 ```
 ## 📸 Capturas de Pantalla
+Componente con Slider en Posición Inicial (Texto Pequeño)
 ![Componente con Slider en Posición Inicial (Texto Pequeño)](images/fontSizeSmall.png)
+Componente con Slider en Posición Media (Texto Mediano
 ![Componente con Slider en Posición Media (Texto Mediano)](images/fontSizeMedium.png)
+Componente con Slider en Posición Final (Texto Grande
 ![Componente con Slider en Posición Final (Texto Grande)](images/fontSizeLarge.png)
