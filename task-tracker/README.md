@@ -11,21 +11,25 @@ Repositorio: https://github.com/JordanGuevara/lit-binding-task-2025.git
 Este componente personalizado permite gestionar una **lista de tareas interactiva**, aplicando `@property` para reactividad y actualización dinámica del DOM usando LitElement. Las tareas se cargan desde un archivo externo en `assets/tasks.json`.
 
 ---
-## Estrcutura del proyecto:
+## Estructura del proyecto:
 
 
 ``` bash
-task-tracker/
-├── src/
-│   └── GuevaraTimer.js
-│   └── index.js
-├── public/
-│   └── assets/tasks.json      
-├── styles/
-│   └── style-tasks.css        
-├── index.html                 
-├── webpack.config.js          
-└── README.md                  
+lit-binding-task-2025/
+├── task-tracker/
+│ ├── src/
+│ │ ├── GuevaraTimer.js
+│ │ └── index.js
+│ ├── public/
+│ │ └── assets/
+│ │ └── tasks.json
+│ ├── styles/
+│ │ └── style-tasks.css
+│ ├── README.md            # Información del componente
+├── index.html
+│── webpack.config.js
+│── README.md              
+└── package.json         
 
 ```
 ## Explicación técnica
