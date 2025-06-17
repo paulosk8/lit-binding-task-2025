@@ -109,7 +109,7 @@ toggleTask(task) {
 # Pasos para la instalación de dependencia para el funcionamiento del WebComponent.
 Seguimos los pasos para la clonación del repositorio
 ```bash
-git clone [https://github.com/paulosk8/lit-binding-task-2025](https://github.com/JordanGuevara/lit-binding-task-2025.git)
+git clone https://github.com/JordanGuevara/lit-binding-task-2025.git
 cd lit-binding-task-2025
 ```
 Dentro del proyecto instalamos lo que son las siguientes dependecias de las cuales tienen las siguientes funciones:
