@@ -1,0 +1,30 @@
+{
+  "name": "tarea1-conversor_temperatura",
+  "version": "1.0.0",
+  "description": "Web Component personalizado utilizando LitElement para convertir de celsius a farenheit y viceversa",
+  "main": "GalarzaPanel.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulosk8/lit-binding-task-2025.git"
+  },
+  "author": "John Galarza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulosk8/lit-binding-task-2025/issues"
+  },
+  "homepage": "https://github.com/paulosk8/lit-binding-task-2025#readme",
+  "dependencies": {
+    "lit": "^3.3.0"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^13.0.0",
+    "html-webpack-plugin": "^5.6.3",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  }
+}
