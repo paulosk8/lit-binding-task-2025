@@ -29,7 +29,6 @@ lit-binding-task-2025/
 │ │ └── tasks.json
 │ ├── styles/
 │ │ └── style-tasks.css
-│ ├── README.md            # Información del componente
 ├── index.html
 │── webpack.config.js
 │── README.md              
