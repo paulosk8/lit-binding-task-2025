@@ -1,15 +1,15 @@
 import { LitElement, html, css } from 'lit-element';
 
 export class FontSizeAdjuster extends LitElement {
-    fontSize = 16;
+  fontSize = 10;
 
-    static get properties() {
-        return {
-            fontSize: { type: Number }
-        };
-    }
+  static get properties() {
+    return {
+      fontSize: { type: Number }
+    };
+  }
 
-    static styles = css`
+  static styles = css`
     :host {
       display: block;
       font-family: Arial, sans-serif;
@@ -88,10 +88,12 @@ export class FontSizeAdjuster extends LitElement {
     }
   `;
 
-    render() {
-        return html`
+  render() {
+    return html`
       <div class="controls">
-        <label for="fontSlider">Tamaño de Fuente: <span>${this.fontSize}</span>px</label>
+        <p>Desliza para ajustar el tamaño de la fuente</p>
+        <label for="fontSlider">El tamaño de la fuente es: <span>${this.fontSize}</span>px</label>
+        
         <input
           id="fontSlider"
           type="range"
@@ -100,17 +102,15 @@ export class FontSizeAdjuster extends LitElement {
 
       <div class="text-container">
         <p style="font-size: ${this.fontSize}px;">
-          Este es el texto cuyo tamaño cambiará con el slider.
-          <br>
-          ¡Ajusta el tamaño a tu gusto!
+          "Sueña en grande, atrévete a fallar y nunca te rindas."
         </p>
       </div>
     `;
-    }
+  }
 
-    _handleSliderChange(event) {
-        this.fontSize = Number(event.target.value);
-    }
+  _handleSliderChange(event) {
+    this.fontSize = Number(event.target.value);
+  }
 }
 
 window.customElements.define('font-size-adjuster', FontSizeAdjuster);
