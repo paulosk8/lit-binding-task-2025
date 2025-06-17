@@ -1,87 +1,82 @@
-# lit-binding-task-2025
+# Tarea 1 U2  LitElement - Data Binding | Editor de Perfil
+Busca implementar un componente web personalizado con **LitElement**, aplicando el concepto de **Data binding** entre propiedades del componente y el DOM.
 
-Tarea académica para implementar data binding usando LitElemen
-Nombre de la tarea
+# Objetivo 
+Aplicar el modelo de programación reactiva con LitElement, creando un formulario editable y reactivo que muestre en tiempo real los cambios hechos por el usuario.
 
-# Tarea Académica: Implementar Data Binding en un Componente usando LitElement
+# Paso 1 
+ Clonar el repositorio del ingeniero (o hacer Fork primero si es tu repositorio personal)
+git clone https://github.com/arquimides12/lit-binding-task-2025.git
+cd lit-binding-task-2025 
 
-## Asignatura: Desarrollo Web Avanzado
+# Paso 2 
+Creamos una rama: git checkout -b anderson-campos
 
-**Docente:** [Nombre del docente]  
-**Periodo:** 2025-1
+![Captura de ejecución](img/rama.png)
 
----
+# Paso 3: Instalación de dependencias y LitElement 
+Ya que usamos LitElement con Webpack, se instalan las dependencias 
+npm install
+npm init -y
+npm install lit
+npm install --save-dev webpack webpack-cli webpack-dev-server html-webpack-plugin
+npm run serve
 
-## Objetivo de la tarea
+![Captura de ejecución](img/litElement.png)
 
-Desarrollar un componente web utilizando LitElement que implemente correctamente el **data binding** (vinculación de datos) unidireccional y/o bidireccional. Esta tarea pondrá en práctica conceptos clave como el uso de decoradores `@property`, la reactividad del DOM, y el ciclo de vida de un componente.
+En la imagen podemos ver que se actualizo las carpetas con color rojo 
 
----
+# Paso 4 : Estructura del proyecto 
 
-## Descripción de la actividad
+![Captura de ejecución](img/estructura.png)
 
-Cada estudiante deberá:
+ # Paso 5: Creación del componente 
+El archivo src/CamposComponent.js tiene este nombre en particular por las indicaciones dadas por el ingeniero este contiene el componente <user-profile-editor> hecho con LitElement. Este permite editar nombre, email y edad, y muestra los datos actualizados en tiempo real. 
 
-1. Clonar este repositorio.
-2. Crear una rama siguiendo la convención de GitHub Flow:  
-   `feature/nombre-apellido`
-3. Desarrollar un componente dentro de la carpeta `src/`, usando LitElement.
-4. Mostrar el componente dentro del archivo `index.html`.
-5. Documentar el desarrollo, decisiones y errores en el archivo `README.md`.
-6. Hacer commit de forma frecuente con mensajes descriptivos.
-7. Crear un Pull Request desde su rama hacia `main`.
-8. No se permite realizar commits directamente en `main`.
+![Captura de ejecución](img/componente.png)
 
----
 
-## Estructura esperada del proyecto
+# Explicación técnica del binding 
+Se usa @property (implícito en static properties) para declarar atributos reactivamente: 
 
-lit-binding-task-2025/
-├── index.html
-├── README.md ← Documentación individual
-└── src/
-└── MiComponente.js ← Archivo del componente
+![Captura de ejecución](img/propi.png)
+ 
+ El método render() usa interpolación de valores y escucha eventos con @input y binding de valor con .value.
+ 
+ <input type="text" .value=${this.name} @input=${e => this.name = e.target.value}> 
+ 
+ El botón guarda los datos actuales y los muestra dentro de un bloque condicional:
+ 
+ <button @click=${this.guardarPerfil}>Guardar</button>
 
----
+ # ¿Qué hace el componente? 
+ 
+Muestra inputs para Nombre, Correo y Edad
+Actualiza los valores al escribir (data binding)
+Muestra los valores en la parte inferior en vivo
 
-## Lista de estudiantes y asignaciones
+![Captura de ejecución](img/formu.png)
 
-Cada estudiante desarrollará un componente con nombre personalizado en base a su apellido. Por ejemplo: `CamposComponent`, `DuranCard`, etc.
 
-| Estudiante                          | Componente sugerido     |
-| ----------------------------------- | ----------------------- |
-| ANDERSON ARQUIMIDES CAMPOS ALVARADO | `CamposComponent.js`    |
-| GIOVANNY FRANCISCO DURAN SANCHEZ    | `DuranCard.js`          |
-| JOHN FERNANDO GALARZA JARAMILLO     | `GalarzaPanel.js`       |
-| MATHIAS ELIAN GUALPA RIVERA         | `GualpaViewer.js`       |
-| JORDAN ALEXANDER GUEVARA CHALIAL    | `GuevaraTimer.js`       |
-| ANTHONY GEOVANNY MEJIA GAIBOR       | `MejiaInput.js`         |
-| JORDY PAUL MEJIA PALACIOS           | `MejiaPalaciosList.js`  |
-| CAMILA ANTONELA OBANDO BUITRON      | `ObandoSwitch.js`       |
-| ANDRES DAVID PANTOJA CHAVEZ         | `PantojaCounter.js`     |
-| ALEXANDER MIGUEL QUIZHPE CUZME      | `QuizhpeToggle.js`      |
-| GISSELA ELISA SALDARRIAGA SALAZAR   | `SaldarriagaDisplay.js` |
-| DARWIN ANDRES TOAPANTA PAEZ         | `ToapantaModal.js`      |
-| JENNIFER NAYELI TORRES MORETA       | `TorresSlider.js`       |
+Al presionar "Guardar", aparece el mensaje: de los datos que apareceran por cinco segundo 
 
----
+![Captura de ejecución](img/guardar.png)
 
-## Reglas del flujo de trabajo (GitHub Flow)
 
-1. Siempre trabaje desde su propia rama: `feature/nombre-apellido`.
-2. Use `git commit` frecuentemente con mensajes claros.
-3. Suba su rama (`git push`) al repositorio.
-4. Cree un **Pull Request (PR)** con el título:  
-   `PR: Nombre Apellido`
-5. El docente revisará y aceptará el PR tras validar funcionalidad, estructura y documentación.
+# Commit final
+Ahora realizamos el ultimo commit en nuestra rama para que se actualize el deber 
+![Captura de ejecución](img/finalEntrega.png)
 
----
+# Crear Pull Request 
 
-## Instrucciones para correr el proyecto localmente
+Ir a tu fork en GitHub
+Presionar "Compare & pull request"
+Título del PR:
+PR: Anderson Campos
+Descripción: 
+Entrega de la tarea 1 
 
-1. Clonar el repositorio:
-
-```bash
-git clone https://github.com/paulosk8/lit-binding-task-2025
-cd lit-binding-task-2025
-```
+# Conclusiones
+- Hubo una variedad de dificultades cuando se guardaba el mensaje salia vacio para eso se agrego  variables savedName, savedEmail y savedAge.
+- Cuando el componente no se mostraba en el index.html se cargó correctamente el bundle.js desde Webpack.
+- Mi index como esta No necesitas incluir <script src="src/CamposComponent.js">, Webpack lo empaqueta solo.
