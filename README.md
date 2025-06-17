@@ -7,7 +7,7 @@ Nombre de la tarea
 
 ## Asignatura: Desarrollo Web Avanzado
 
-**Docente:** [Nombre del docente]  
+**Docente:** Ing. Paulo Galarza.
 **Periodo:** 2025-1
 
 ---
@@ -18,70 +18,63 @@ Desarrollar un componente web utilizando LitElement que implemente correctamente
 
 ---
 
-## Descripción de la actividad
+# Font Size Adjuster
 
-Cada estudiante deberá:
-
-1. Clonar este repositorio.
-2. Crear una rama siguiendo la convención de GitHub Flow:  
-   `feature/nombre-apellido`
-3. Desarrollar un componente dentro de la carpeta `src/`, usando LitElement.
-4. Mostrar el componente dentro del archivo `index.html`.
-5. Documentar el desarrollo, decisiones y errores en el archivo `README.md`.
-6. Hacer commit de forma frecuente con mensajes descriptivos.
-7. Crear un Pull Request desde su rama hacia `main`.
-8. No se permite realizar commits directamente en `main`.
+**Autor:** Darwin Andrés Toapanta Páez  
+**Componente:** `<font-size-adjuster>`  
+**Objetivo:** Permitir al usuario ajustar dinámicamente el tamaño de fuente de un texto motivacional usando un control tipo *slider*.
 
 ---
 
-## Estructura esperada del proyecto
+## 🧠 Explicación Técnica del Binding
 
-lit-binding-task-2025/
-├── index.html
-├── README.md ← Documentación individual
-└── src/
-└── MiComponente.js ← Archivo del componente
+Este componente utiliza **LitElement** y aprovecha varias técnicas de binding:
 
----
+- 🔧 **Propiedades Reactivas:**  
+  Se declara la propiedad `fontSize` como un número reactivo usando `static get properties()`.  
+  Esto permite que los cambios en su valor actualicen automáticamente el DOM.
 
-## Lista de estudiantes y asignaciones
+- 🧪 **Renderizado Dinámico (`render`)**:  
+  Se vincula `fontSize` dentro del HTML usando interpolación:  
+  ```html
+  <p style="font-size: ${this.fontSize}px;">
 
-Cada estudiante desarrollará un componente con nombre personalizado en base a su apellido. Por ejemplo: `CamposComponent`, `DuranCard`, etc.
+- 🎯 **Eventos (@input):**
+   El slider captura el evento input y llama a la función _handleSliderChange, la cual actualiza la propiedad fontSize en tiempo real:
+   ```java
+   @input=${this._handleSliderChange}
 
-| Estudiante                          | Componente sugerido     |
-| ----------------------------------- | ----------------------- |
-| ANDERSON ARQUIMIDES CAMPOS ALVARADO | `CamposComponent.js`    |
-| GIOVANNY FRANCISCO DURAN SANCHEZ    | `DuranCard.js`          |
-| JOHN FERNANDO GALARZA JARAMILLO     | `GalarzaPanel.js`       |
-| MATHIAS ELIAN GUALPA RIVERA         | `GualpaViewer.js`       |
-| JORDAN ALEXANDER GUEVARA CHALIAL    | `GuevaraTimer.js`       |
-| ANTHONY GEOVANNY MEJIA GAIBOR       | `MejiaInput.js`         |
-| JORDY PAUL MEJIA PALACIOS           | `MejiaPalaciosList.js`  |
-| CAMILA ANTONELA OBANDO BUITRON      | `ObandoSwitch.js`       |
-| ANDRES DAVID PANTOJA CHAVEZ         | `PantojaCounter.js`     |
-| ALEXANDER MIGUEL QUIZHPE CUZME      | `QuizhpeToggle.js`      |
-| GISSELA ELISA SALDARRIAGA SALAZAR   | `SaldarriagaDisplay.js` |
-| DARWIN ANDRES TOAPANTA PAEZ         | `ToapantaModal.js`      |
-| JENNIFER NAYELI TORRES MORETA       | `TorresSlider.js`       |
-
----
-
-## Reglas del flujo de trabajo (GitHub Flow)
-
-1. Siempre trabaje desde su propia rama: `feature/nombre-apellido`.
-2. Use `git commit` frecuentemente con mensajes claros.
-3. Suba su rama (`git push`) al repositorio.
-4. Cree un **Pull Request (PR)** con el título:  
-   `PR: Nombre Apellido`
-5. El docente revisará y aceptará el PR tras validar funcionalidad, estructura y documentación.
-
----
-
-## Instrucciones para correr el proyecto localmente
-
-1. Clonar el repositorio:
-
-```bash
-git clone https://github.com/paulosk8/lit-binding-task-2025
+## ⚙️ Pasos de Instalación y Ejecución
+Clona este repositorio (o tu fork) en tu equipo:
+ ```bash
+git clone https://github.com/DarwinToapanta01/lit-binding-task-2025.git
 cd lit-binding-task-2025
+ ```
+Instala las dependencias del proyecto:
+```bash
+npm install
+```
+## 🛠️ Implementación Técnica
+- 📌 1. Data Binding con LitElement
+El componente <font-size-adjuster> implementa correctamente el data binding utilizando:
+
+Propiedades reactivas:
+![Se declara fontSize como propiedad observable con tipo Number:](images/fontSize.png)
+
+DOM reactivo:
+![Dentro del `render()` se utiliza ${this.fontSize} para actualizar dinámicamente el valor visible en el DOM:](images/domReact.png)
+
+Manejo de eventos:
+![Se maneja el evento `@input` del slider para actualizar `fontSize` en tiempo real:](images/eventos.png)
+
+![Método para manejar el evento 'input' del slider.](images/handleSlider.png)
+
+## 🏃‍♀️ Ejecución del proyecto 
+Ejecuta el proyecto localmente:
+```bash
+npm run serve
+```
+Abre tu navegador por lo general con el siguiente link:
+```bash
+http://localhost:8080
 ```
