@@ -104,3 +104,40 @@ toggleTask(task) {
   this.tasks = [...this.tasks]; 
 }
 ```
+### Captura del Componente
+![Imagen del Componente](/img/MuestraWebComponent.png)
+# Pasos para la instalación de dependencia para el funcionamiento del WebComponent.
+Seguimos los pasos para la clonación del repositorio
+```bash
+git clone [https://github.com/paulosk8/lit-binding-task-2025](https://github.com/JordanGuevara/lit-binding-task-2025.git)
+cd lit-binding-task-2025
+```
+Dentro del proyecto instalamos lo que son las siguientes dependecias de las cuales tienen las siguientes funciones:
+- Instala LitElement, la librería base para crear Web Components modernos con renderizado reactivo.
+```bash
+npm install lit-element
+```
+- Instala Webpack y su interfaz de línea de comandos para compilar y agrupar tus archivos JS, CSS, etc.
+```bash
+npm install webpack webpack-cli --save-dev
+```
+- Instala el servidor local de desarrollo de Webpack, útil para hacer pruebas con recarga automática (npm run serve).
+```bash
+npm install webpack webpack-dev-server --save-dev
+```
+- Plugin que genera un archivo index.html con tu bundle JS incluido automáticamente.
+```bash
+npm install --save-dev html-webpack-plugin
+```
+- Permite que Webpack entienda y transforme código moderno (ES6+) y decoradores/clases de Lit (No aplicable por conflictos de configuración).
+```bash
+npm install --save-dev babel-loader @babel/core @babel/preset-env @babel/plugin-proposal-decorators @babel/plugin-proposal-class-properties
+```
+- Permite importar archivos .css directamente al componente:css-loader: interpreta @import y url() en CSS y to-string-loader: convierte el CSS en un string para que puedas inyectarlo en el shadow DOM usando unsafeCSS.
+```bash
+npm install --save-dev to-string-loader css-loader
+```
+- Para iniciar el proyecto en si
+```bash
+npm run serve
+```
