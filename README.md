@@ -78,3 +78,7 @@ Abre tu navegador por lo general con el siguiente link:
 ```bash
 http://localhost:8080
 ```
+## 📸 Capturas de Pantalla
+![Componente con Slider en Posición Inicial (Texto Pequeño)](images/fontSizeSmall.png)
+![Componente con Slider en Posición Media (Texto Mediano)](images/fontSizeMedium.png)
+![Componente con Slider en Posición Final (Texto Grande)](images/fontSizeLarge.png)
