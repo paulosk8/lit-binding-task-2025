@@ -1,0 +1,44 @@
+/* Estilos para el Web Component */
+:host {
+  display: block;
+  padding: 1rem;
+  border: 2px solid #2196f3;
+  border-radius: 10px;
+  max-width: 400px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  --primary-color: green;
+  --secondary-color: orange;
+  --third-color: gray;
+}
+
+h2 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+}
+
+input[type="checkbox"] {
+  margin-right: 0.6rem;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--secondary-color);
+}
+
+li.checked {
+  text-decoration: line-through;
+  color: gray;
+}

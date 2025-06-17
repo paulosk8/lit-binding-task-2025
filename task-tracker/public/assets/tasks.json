@@ -1,0 +1,5 @@
+[
+  { "text": "Aprender Lit", "done": false },
+  { "text": "Hacer tarea", "done": true },
+  { "text": "Tomar agua", "done": false }
+]
