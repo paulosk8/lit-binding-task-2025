@@ -38,7 +38,7 @@ input[type="checkbox"] {
   accent-color: var(--secondary-color);
 }
 
-li.checked {
+/* li.checked {
   text-decoration: line-through;
   color: gray;
-}
+} */

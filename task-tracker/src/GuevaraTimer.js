@@ -1,11 +1,11 @@
-import { LitElement, html } from 'lit';
+import { LitElement, html, css, unsafeCSS} from 'lit';
 // import { property } from 'lit/decorators.js';
-import '../styles/style-tasks.css';
+import style from '../styles/style-tasks.css';
 
 class TaskTracker extends LitElement {
   // @property({ type: Array })
   // tasks; 
-
+  static styles = css`${unsafeCSS(style)}`;
   constructor() {
     super();
     this.tasks = [];
