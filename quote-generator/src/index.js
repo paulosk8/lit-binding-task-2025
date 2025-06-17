@@ -1,1 +1,1 @@
-import './QuoteGenerator';
+import './GualpaViewer.js';

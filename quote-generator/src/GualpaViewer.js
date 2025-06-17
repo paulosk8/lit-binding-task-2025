@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 
-export class QuoteGenerator extends LitElement {
+export class GualpaViewer extends LitElement {
   static styles = css`
     :host {
       display: block;
@@ -78,4 +78,4 @@ export class QuoteGenerator extends LitElement {
   }
 }
 
-customElements.define("quote-generator", QuoteGenerator);
+customElements.define("gualpa-viewer", GualpaViewer);
