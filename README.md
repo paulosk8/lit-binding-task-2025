@@ -1,1 +1,1 @@
-![Captura de ejecución](final.png)
+![Captura de ejecución](img/final.png)
