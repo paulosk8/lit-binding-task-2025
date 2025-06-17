@@ -1,87 +1,107 @@
-# lit-binding-task-2025
+# TaskTracker - Componente Web con LitElement
 
-Tarea académica para implementar data binding usando LitElemen
-Nombre de la tarea
+### Autor: Jordan Alexander Guevara Chalial  
+### Fecha: 2025-06-17
+### Docente: Ing. Paulo Galarza Mgs.
+### Periodo: 2025-1
 
-# Tarea Académica: Implementar Data Binding en un Componente usando LitElement
-
-## Asignatura: Desarrollo Web Avanzado
-
-**Docente:** [Nombre del docente]  
-**Periodo:** 2025-1
+Componente: `<task-tracker>`  
+Repositorio: https://github.com/JordanGuevara/lit-binding-task-2025.git
 
 ---
 
-## Objetivo de la tarea
+## Objetivo
 
-Desarrollar un componente web utilizando LitElement que implemente correctamente el **data binding** (vinculación de datos) unidireccional y/o bidireccional. Esta tarea pondrá en práctica conceptos clave como el uso de decoradores `@property`, la reactividad del DOM, y el ciclo de vida de un componente.
-
----
-
-## Descripción de la actividad
-
-Cada estudiante deberá:
-
-1. Clonar este repositorio.
-2. Crear una rama siguiendo la convención de GitHub Flow:  
-   `feature/nombre-apellido`
-3. Desarrollar un componente dentro de la carpeta `src/`, usando LitElement.
-4. Mostrar el componente dentro del archivo `index.html`.
-5. Documentar el desarrollo, decisiones y errores en el archivo `README.md`.
-6. Hacer commit de forma frecuente con mensajes descriptivos.
-7. Crear un Pull Request desde su rama hacia `main`.
-8. No se permite realizar commits directamente en `main`.
+Este componente personalizado permite gestionar una **lista de tareas interactiva**, aplicando `@property` para reactividad y actualización dinámica del DOM usando LitElement. Las tareas se cargan desde un archivo externo en `assets/tasks.json`.
 
 ---
+## Estructura del proyecto:
 
-## Estructura esperada del proyecto
 
+``` bash
 lit-binding-task-2025/
+├── task-tracker/
+│ ├── src/
+│ │ ├── GuevaraTimer.js
+│ │ └── index.js
+│ ├── public/
+│ │ └── assets/
+│ │ └── tasks.json
+│ ├── styles/
+│ │ └── style-tasks.css
+│ ├── README.md            # Información del componente
 ├── index.html
-├── README.md ← Documentación individual
-└── src/
-└── MiComponente.js ← Archivo del componente
+│── webpack.config.js
+│── README.md              
+└── package.json         
+
+```
+## Explicación técnica
+
+### Reactividad
+- Aunque el decorador `@property` está comentado, se maneja la propiedad `tasks` como un arreglo reactivo internamente.
+- Se usa `this.tasks = [...this.tasks];` al modificar el estado de una tarea para forzar la actualización del componente, ya que Lit no detecta cambios en objetos internos directamente.
 
 ---
 
-## Lista de estudiantes y asignaciones
+## Comportamiento del componente
 
-Cada estudiante desarrollará un componente con nombre personalizado en base a su apellido. Por ejemplo: `CamposComponent`, `DuranCard`, etc.
+### Datos iniciales (`tasks.json`)
 
-| Estudiante                          | Componente sugerido     |
-| ----------------------------------- | ----------------------- |
-| ANDERSON ARQUIMIDES CAMPOS ALVARADO | `CamposComponent.js`    |
-| GIOVANNY FRANCISCO DURAN SANCHEZ    | `DuranCard.js`          |
-| JOHN FERNANDO GALARZA JARAMILLO     | `GalarzaPanel.js`       |
-| MATHIAS ELIAN GUALPA RIVERA         | `GualpaViewer.js`       |
-| JORDAN ALEXANDER GUEVARA CHALIAL    | `GuevaraTimer.js`       |
-| ANTHONY GEOVANNY MEJIA GAIBOR       | `MejiaInput.js`         |
-| JORDY PAUL MEJIA PALACIOS           | `MejiaPalaciosList.js`  |
-| CAMILA ANTONELA OBANDO BUITRON      | `ObandoSwitch.js`       |
-| ANDRES DAVID PANTOJA CHAVEZ         | `PantojaCounter.js`     |
-| ALEXANDER MIGUEL QUIZHPE CUZME      | `QuizhpeToggle.js`      |
-| GISSELA ELISA SALDARRIAGA SALAZAR   | `SaldarriagaDisplay.js` |
-| DARWIN ANDRES TOAPANTA PAEZ         | `ToapantaModal.js`      |
-| JENNIFER NAYELI TORRES MORETA       | `TorresSlider.js`       |
+```json
+[
+  { "text": "Aprender Lit", "done": false },
+  { "text": "Hacer tarea", "done": true },
+  { "text": "Tomar agua", "done": false }
+]
+```
 
----
 
-## Reglas del flujo de trabajo (GitHub Flow)
+### connectedCallback()
+Se ejecuta al insertar el componente en el DOM y ayuda a la carga el archivo JSON y actualiza this.tasks.
 
-1. Siempre trabaje desde su propia rama: `feature/nombre-apellido`.
-2. Use `git commit` frecuentemente con mensajes claros.
-3. Suba su rama (`git push`) al repositorio.
-4. Cree un **Pull Request (PR)** con el título:  
-   `PR: Nombre Apellido`
-5. El docente revisará y aceptará el PR tras validar funcionalidad, estructura y documentación.
+```js
+render() {
+  return html`
+    <ul>
+      ${this.tasks.map(task => html`
+        <li class=${task.done ? 'checked' : ''}>
+          <input type="checkbox"
+                 ?checked=${task.done}
+                 @change=${() => this.toggleTask(task)} />
+          ${task.text}
+        </li>
+      `)}
+    </ul>
+  `;
+}
 
----
+```
+### render()
+La función `render()` renderiza dinámicamente las tareas en una lista y que se muestra el estado de cada tarea con un checkbox:
 
-## Instrucciones para correr el proyecto localmente
+```js
+render() {
+  return html`
+    <ul>
+      ${this.tasks.map(task => html`
+        <li class=${task.done ? 'checked' : ''}>
+          <input type="checkbox"
+                 ?checked=${task.done}
+                 @change=${() => this.toggleTask(task)} />
+          ${task.text}
+        </li>
+      `)}
+    </ul>
+  `;
+}
+```
+### toggleTask(task)
+Cambia el estado done de la tarea al marcar o desmarcar y crea una nueva referencia del array para disparar la reactividad.
 
-1. Clonar el repositorio:
-
-```bash
-git clone https://github.com/paulosk8/lit-binding-task-2025
-cd lit-binding-task-2025
+```js
+toggleTask(task) {
+  task.done = !task.done;
+  this.tasks = [...this.tasks]; 
+}
 ```
