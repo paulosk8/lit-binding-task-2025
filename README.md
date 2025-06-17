@@ -54,6 +54,7 @@ Se usa @property (implícito en static properties) para declarar atributos react
 Muestra inputs para Nombre, Correo y Edad
 Actualiza los valores al escribir (data binding)
 Muestra los valores en la parte inferior en vivo
+
 ![Captura de ejecución](img/formu.png)
 
 
