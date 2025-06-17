@@ -45,25 +45,25 @@ Gracias a esta estructura, el DOM es reactivo y siempre refleja el valor actual 
 
 ## Capturas de pantalla del funcionamiento
   Primero, se levanta el servidor local con el comando `npm run serve`.  
-  ![Servidor local levantado](./capturas/ejecutarservidorlocal.png)  
+  ![Servidor local levantado](./quote-generator/capturas/ejecutarservidorlocal.png)  
 
   Luego, al abrir la URL en el navegador, se muestra la interfaz del componente con una frase aleatoria y el botón para generar nuevas frases.  
-  ![Interfaz Principal](./capturas/interfazprincipal.png)  
+  ![Interfaz Principal](./quote-generator/capturas/interfazprincipal.png)  
 
   Al presionar nosotros el boton de Nueva Frase se va ir cambiando la frase de manera aleatoria 
-  ![Uso del boton nueva frase](./capturas/usodelboton.png)  
+  ![Uso del boton nueva frase](./quote-generator/capturas/usodelboton.png)  
 
   Declaración de la propiedad quote como reactiva LitElement detecta los cambios en esta propiedad y actualiza automáticamente el DOM cuando su valor cambia.
-  ![Uso de @Propety](./capturas/usode@property.png)  
+  ![Uso de @Propety](./quote-generator/capturas/usode@property.png)  
 
   Método render() que genera el contenido HTML del componente. El valor de quote se inyecta dinámicamente y cambia cada vez que se actualiza la propiedad, gracias al data binding.
-  ![Uso de Render](./capturas/usoderender.png) 
+  ![Uso de Render](./quote-generator/capturas/usoderender.png) 
 
   Para finalizar, las frases motivacionales utilizadas en el componente fueron tomadas de la siguiente página web:
 
   📌[Grupo Billingham - Frases motivadoras para estudiantes](https://www.grupobillingham.com/blog/frases-motivadoras-estudiantes/)
 
-  ![Fuente de las frases](./capturas/frases.png)
+  ![Fuente de las frases](./quote-generator/capturas/frases.png)
 
 ## Errores comunes enfrentados y cómo se solucionaron
 
