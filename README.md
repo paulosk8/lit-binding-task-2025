@@ -65,7 +65,7 @@ Al presionar "Guardar", aparece el mensaje: de los datos que apareceran por cinc
 
 # Commit final
 Ahora realizamos el ultimo commit en nuestra rama para que se actualize el deber 
-![Captura de ejecución](img/fin.png)
+![Captura de ejecución](img/finalEntrega.png)
 
 # Crear Pull Request 
 
