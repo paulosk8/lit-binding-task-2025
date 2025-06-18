@@ -1,87 +1,139 @@
-# lit-binding-task-2025
 
-Tarea académica para implementar data binding usando LitElemen
-Nombre de la tarea
+# Step Progress – Web Component con LitElement
 
-# Tarea Académica: Implementar Data Binding en un Componente usando LitElement
+## Descripción del proyecto
+`<step-progress>` es un Web Component que muestra un indicador de pasos con botones para avanzar y retroceder. Se implementa con LitElement, aplicando data binding entre propiedades y el DOM.
 
-## Asignatura: Desarrollo Web Avanzado
+## Objetivos de la tarea
+- Implementar correctamente la reactividad de datos con `static properties` y `render()`.
+- Comprender cómo interactúan las propiedades con el DOM en tiempo real.
+- Aplicar buenas prácticas de versionamiento con GitHub Flow.
+- Documentar el proyecto de forma clara y técnica.
+- Justificar decisiones de implementación y errores corregidos.
 
-**Docente:** [Nombre del docente]  
-**Periodo:** 2025-1
+## Instalación y ejecución
 
----
-
-## Objetivo de la tarea
-
-Desarrollar un componente web utilizando LitElement que implemente correctamente el **data binding** (vinculación de datos) unidireccional y/o bidireccional. Esta tarea pondrá en práctica conceptos clave como el uso de decoradores `@property`, la reactividad del DOM, y el ciclo de vida de un componente.
-
----
-
-## Descripción de la actividad
-
-Cada estudiante deberá:
-
-1. Clonar este repositorio.
-2. Crear una rama siguiendo la convención de GitHub Flow:  
-   `feature/nombre-apellido`
-3. Desarrollar un componente dentro de la carpeta `src/`, usando LitElement.
-4. Mostrar el componente dentro del archivo `index.html`.
-5. Documentar el desarrollo, decisiones y errores en el archivo `README.md`.
-6. Hacer commit de forma frecuente con mensajes descriptivos.
-7. Crear un Pull Request desde su rama hacia `main`.
-8. No se permite realizar commits directamente en `main`.
-
----
-
-## Estructura esperada del proyecto
-
-lit-binding-task-2025/
-├── index.html
-├── README.md ← Documentación individual
-└── src/
-└── MiComponente.js ← Archivo del componente
-
----
-
-## Lista de estudiantes y asignaciones
-
-Cada estudiante desarrollará un componente con nombre personalizado en base a su apellido. Por ejemplo: `CamposComponent`, `DuranCard`, etc.
-
-| Estudiante                          | Componente sugerido     |
-| ----------------------------------- | ----------------------- |
-| ANDERSON ARQUIMIDES CAMPOS ALVARADO | `CamposComponent.js`    |
-| GIOVANNY FRANCISCO DURAN SANCHEZ    | `DuranCard.js`          |
-| JOHN FERNANDO GALARZA JARAMILLO     | `GalarzaPanel.js`       |
-| MATHIAS ELIAN GUALPA RIVERA         | `GualpaViewer.js`       |
-| JORDAN ALEXANDER GUEVARA CHALIAL    | `GuevaraTimer.js`       |
-| ANTHONY GEOVANNY MEJIA GAIBOR       | `MejiaInput.js`         |
-| JORDY PAUL MEJIA PALACIOS           | `MejiaPalaciosList.js`  |
-| CAMILA ANTONELA OBANDO BUITRON      | `ObandoSwitch.js`       |
-| ANDRES DAVID PANTOJA CHAVEZ         | `PantojaCounter.js`     |
-| ALEXANDER MIGUEL QUIZHPE CUZME      | `QuizhpeToggle.js`      |
-| GISSELA ELISA SALDARRIAGA SALAZAR   | `SaldarriagaDisplay.js` |
-| DARWIN ANDRES TOAPANTA PAEZ         | `ToapantaModal.js`      |
-| JENNIFER NAYELI TORRES MORETA       | `TorresSlider.js`       |
-
----
-
-## Reglas del flujo de trabajo (GitHub Flow)
-
-1. Siempre trabaje desde su propia rama: `feature/nombre-apellido`.
-2. Use `git commit` frecuentemente con mensajes claros.
-3. Suba su rama (`git push`) al repositorio.
-4. Cree un **Pull Request (PR)** con el título:  
-   `PR: Nombre Apellido`
-5. El docente revisará y aceptará el PR tras validar funcionalidad, estructura y documentación.
-
----
-
-## Instrucciones para correr el proyecto localmente
-
-1. Clonar el repositorio:
+### 1. Clonar el repositorio
+Ejecuta en tu terminal:
 
 ```bash
-git clone https://github.com/paulosk8/lit-binding-task-2025
+git clone https://github.com/AndresPantoja004/lit-binding-task-2025.git
 cd lit-binding-task-2025
 ```
+
+### 2. Instalar dependencias
+```bash
+npm install
+```
+
+### 3. Iniciar el servidor local
+```bash
+npx lite-server
+```
+
+Esto abrirá `index.html` en el navegador y cargará el componente.
+
+## Uso del componente
+
+Para utilizar `<step-progress>`, agrégalo a tu HTML:
+
+```html
+<step-progress></step-progress>
+```
+
+El componente muestra 5 pasos por defecto y permite avanzar y retroceder con botones. También puedes personalizar la cantidad de pasos con el atributo `total`:
+
+```html
+<step-progress total="7"></step-progress>
+```
+
+## Explicación técnica
+
+### Binding con `static properties`
+
+El estado del componente se gestiona con propiedades reactivas declaradas en `static properties`:
+
+```js
+static properties = {
+  current: { type: Number },
+  total: { type: Number }
+};
+```
+
+Cada vez que `current` cambia, LitElement actualiza el DOM automáticamente, mostrando el nuevo estado.
+
+### Renderizado reactivo
+
+El método `render()` actualiza dinámicamente los pasos en el DOM:
+
+```js
+render() {
+  return html`
+    <div class="progress">
+      ${Array.from({ length: this.total }, (_, i) => html`
+        <div class="step ${i < this.current ? 'active' : ''}"></div>
+      `)}
+    </div>
+  `;
+}
+```
+
+## Errores comunes y soluciones
+
+### 🚨 Error: "Failed to resolve module specifier 'lit'"
+🔹 **Solución**: Asegúrate de que `lit` está instalado correctamente con:
+
+```bash
+npm install lit
+```
+
+Y usa la importación adecuada sin rutas relativas:
+
+```js
+import { LitElement, html, css } from 'lit';
+```
+
+### 🚨 Error: "Nothing to commit, working tree clean"
+🔹 **Solución**: Si `git commit` no detecta cambios, asegúrate de modificar los archivos antes de agregarlos con:
+
+```bash
+git add .
+```
+
+### 🚨 Error: "Uncaught TypeError: Cannot read properties of undefined"
+🔹 **Solución**: Verifica que las propiedades tengan valores iniciales en el constructor:
+
+```js
+constructor() {
+  super();
+  this.current = 1;
+  this.total = 5;
+}
+```
+
+## Capturas de pantalla
+
+Guarda tus imágenes en la carpeta `docs/` con estos nombres:
+
+- `docs/component-default.png` → Componente con 5 pasos por defecto.
+- `docs/component-custom-steps.png` → Componente con un número personalizado de pasos (`total="7"`).
+- `docs/button-navigation.png` → Botones funcionando al avanzar y retroceder.
+- `docs/error-example.png` → Algún error encontrado y solución aplicada.
+- `docs/github-flow.png` → Flujo de trabajo con GitHub mostrando commits y pull request.
+
+Puedes agregar las imágenes en el README con:
+
+```markdown
+![Vista por defecto](assets/component-default.png)
+![Personalización de pasos](assets/component-custom-steps.png)
+```
+
+## Versionamiento con GitHub Flow
+
+El proyecto sigue GitHub Flow:
+
+- Se crea un fork del repositorio base.
+- Se clona el fork con `git clone`.
+- Se trabaja en la rama `feature/step-progress` con commits descriptivos.
+- Se hace un Pull Request hacia `develop` para revisión.
+
