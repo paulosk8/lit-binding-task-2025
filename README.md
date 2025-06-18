@@ -113,20 +113,13 @@ constructor() {
 
 ## Capturas de pantalla
 
-Guarda tus imágenes en la carpeta `docs/` con estos nombres:
+### ✅ Vistapor defecto el primer paso
 
-- `docs/component-default.png` → Componente con 5 pasos por defecto.
-- `docs/component-custom-steps.png` → Componente con un número personalizado de pasos (`total="7"`).
-- `docs/button-navigation.png` → Botones funcionando al avanzar y retroceder.
-- `docs/error-example.png` → Algún error encontrado y solución aplicada.
-- `docs/github-flow.png` → Flujo de trabajo con GitHub mostrando commits y pull request.
-
-Puedes agregar las imágenes en el README con:
-
-```markdown
 ![Vista por defecto](assets/component-default.png)
+
+### ✅ Vista ya con progreso de 3 pasos
 ![Personalización de pasos](assets/component-custom-steps.png)
-```
+
 
 ## Versionamiento con GitHub Flow
 
