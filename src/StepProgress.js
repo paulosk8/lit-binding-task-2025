@@ -30,10 +30,10 @@ class StepProgress extends LitElement {
 
   render() {
     return html`
-      <div class="progress">
-        ${Array.from({ length: this.total }, (_, i) => html`
-          <div class="step ${i < this.current ? 'active' : ''}"></div>
-        `)}
+      <div class="container">
+        ${Array.from({ length: this.totalSteps }, (_, i) =>
+          html`<div class="step ${i === this.currentStep ? 'active' : ''}">${i + 1}</div>`
+        )}
       </div>
     `;
   }
