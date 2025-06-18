@@ -1,87 +1,115 @@
-# lit-binding-task-2025
+# 📘 Informe técnico: Componente `<live-clock>` usando LitElement
 
-Tarea académica para implementar data binding usando LitElemen
-Nombre de la tarea
-
-# Tarea Académica: Implementar Data Binding en un Componente usando LitElement
-
-## Asignatura: Desarrollo Web Avanzado
-
-**Docente:** [Nombre del docente]  
-**Periodo:** 2025-1
+### Estudiante: Giovanny Francisco Durán Sánchez  
+### Asignatura: Integrativa Componentes Web  
+### Docente: Ing. Paulo Galarza 
+### Rama: `feature/live-clock_Duran_Giovanny`
 
 ---
 
-## Objetivo de la tarea
+## 🧩 Introducción
 
-Desarrollar un componente web utilizando LitElement que implemente correctamente el **data binding** (vinculación de datos) unidireccional y/o bidireccional. Esta tarea pondrá en práctica conceptos clave como el uso de decoradores `@property`, la reactividad del DOM, y el ciclo de vida de un componente.
-
----
-
-## Descripción de la actividad
-
-Cada estudiante deberá:
-
-1. Clonar este repositorio.
-2. Crear una rama siguiendo la convención de GitHub Flow:  
-   `feature/nombre-apellido`
-3. Desarrollar un componente dentro de la carpeta `src/`, usando LitElement.
-4. Mostrar el componente dentro del archivo `index.html`.
-5. Documentar el desarrollo, decisiones y errores en el archivo `README.md`.
-6. Hacer commit de forma frecuente con mensajes descriptivos.
-7. Crear un Pull Request desde su rama hacia `main`.
-8. No se permite realizar commits directamente en `main`.
+El presente documento describe el desarrollo e implementación de un componente Web personalizado `<live-clock>` utilizando el framework **LitElement**, como parte del aprendizaje de data binding y componentes reusables. El componente fue desarrollado aplicando las buenas prácticas de estructuración, reactividad y manejo de eventos, integrando además control de versiones con GitHub Flow y documentación técnica adecuada para su revisión.
 
 ---
 
-## Estructura esperada del proyecto
+## 🎯 Objetivos
 
-lit-binding-task-2025/
-├── index.html
-├── README.md ← Documentación individual
-└── src/
-└── MiComponente.js ← Archivo del componente
+### Objetivo general
+Implementar un componente Web que muestre un reloj en tiempo real con opción de cambio de formato (24h / 12h), utilizando LitElement y aplicando data binding.
 
----
-
-## Lista de estudiantes y asignaciones
-
-Cada estudiante desarrollará un componente con nombre personalizado en base a su apellido. Por ejemplo: `CamposComponent`, `DuranCard`, etc.
-
-| Estudiante                          | Componente sugerido     |
-| ----------------------------------- | ----------------------- |
-| ANDERSON ARQUIMIDES CAMPOS ALVARADO | `CamposComponent.js`    |
-| GIOVANNY FRANCISCO DURAN SANCHEZ    | `DuranCard.js`          |
-| JOHN FERNANDO GALARZA JARAMILLO     | `GalarzaPanel.js`       |
-| MATHIAS ELIAN GUALPA RIVERA         | `GualpaViewer.js`       |
-| JORDAN ALEXANDER GUEVARA CHALIAL    | `GuevaraTimer.js`       |
-| ANTHONY GEOVANNY MEJIA GAIBOR       | `MejiaInput.js`         |
-| JORDY PAUL MEJIA PALACIOS           | `MejiaPalaciosList.js`  |
-| CAMILA ANTONELA OBANDO BUITRON      | `ObandoSwitch.js`       |
-| ANDRES DAVID PANTOJA CHAVEZ         | `PantojaCounter.js`     |
-| ALEXANDER MIGUEL QUIZHPE CUZME      | `QuizhpeToggle.js`      |
-| GISSELA ELISA SALDARRIAGA SALAZAR   | `SaldarriagaDisplay.js` |
-| DARWIN ANDRES TOAPANTA PAEZ         | `ToapantaModal.js`      |
-| JENNIFER NAYELI TORRES MORETA       | `TorresSlider.js`       |
+### Objetivos específicos
+- Aplicar el decorador `@property` para gestionar propiedades reactivas.
+- Actualizar dinámicamente el DOM usando el método `render()`.
+- Gestionar eventos para alternar el formato del reloj.
+- Aplicar GitHub Flow como estrategia de control de versiones.
+- Documentar todo el desarrollo mediante capturas y explicación técnica.
 
 ---
 
-## Reglas del flujo de trabajo (GitHub Flow)
+## ⚙️ Desarrollo técnico
 
-1. Siempre trabaje desde su propia rama: `feature/nombre-apellido`.
-2. Use `git commit` frecuentemente con mensajes claros.
-3. Suba su rama (`git push`) al repositorio.
-4. Cree un **Pull Request (PR)** con el título:  
-   `PR: Nombre Apellido`
-5. El docente revisará y aceptará el PR tras validar funcionalidad, estructura y documentación.
+El componente fue desarrollado en el archivo `src/LiveClock.js`, y su punto de entrada fue configurado mediante `webpack.config.js`. El uso de `@property` permitió que las variables `time` y `format24h` fueran reactivas. El método `render()` se encarga de actualizar automáticamente la vista cuando cambia alguna propiedad.
+
+### 🔸 Código fuente del componente
+
+![Código del componente](./img/codigo-componente.png)
+
+- `connectedCallback()` inicia el reloj con `setInterval`.
+- `disconnectedCallback()` lo limpia con `clearInterval`.
+- Se usa `@click` para cambiar el formato dinámicamente.
 
 ---
 
-## Instrucciones para correr el proyecto localmente
+## 🖥️ Visualización del componente
 
-1. Clonar el repositorio:
+### 🔹 Formato 24 horas
+
+![Vista 24 horas](./img/reloj-ejecucion-24h.png)
+
+---
+
+### 🔹 Formato 12 horas
+
+![Vista 12 horas](./img/reloj-ejecucion-12h.png)
+
+---
+
+## 🧪 Data Binding y eventos
+
+- La propiedad `time` se actualiza automáticamente gracias a `@property` y `render()`.
+- El evento del botón usa `@click=${this._toggleFormat}` para alternar entre formatos.
+- Todo el DOM responde de forma reactiva a los cambios sin recargar la página.
+
+---
+
+## 🔁 GitHub Flow aplicado
+
+Se aplicó correctamente la estrategia GitHub Flow:
+
+1. Se realizó un **fork** del repositorio original del docente.
+2. Se creó la rama: `feature/live-clock_Duran_Giovanny`.
+3. Se realizaron commits frecuentes y descriptivos:
+   - `feat: crear componente reloj con formato 24h`
+   - `fix: alternar entre 12h y 24h`
+   - `docs: agregar capturas y README estructurado`
+4. Se subió la rama al fork personal.
+5. Se creó un **Pull Request hacia la rama `develop` del repositorio original**.
+
+---
+
+## 🐞 Errores enfrentados y solución
+
+| Error | Causa | Solución |
+|------|-------|----------|
+| `require is not defined` | `webpack.config.js` escrito en CommonJS y el proyecto configurado como módulo ES | Se reescribió `webpack.config.js` usando `import` y `export default` |
+| `Failed to resolve module specifier "lit"` | Intento de usar Lit sin bundler (Webpack) | Se corrigió el entorno y se ejecutó con `npm run serve` |
+| Componente no se renderizaba | Se había olvidado registrar `customElements.define(...)` | Se corrigió agregando la definición al final del archivo |
+
+---
+
+## ✅ Conclusiones
+
+- Se logró implementar exitosamente un componente Web `<live-clock>` funcional, reactivo y personalizable.
+- El uso de `@property` junto con `render()` permitió establecer una relación directa entre los datos y el DOM.
+- La estructura del proyecto y su despliegue con Webpack facilitaron el desarrollo modular y escalable.
+- GitHub Flow permitió llevar un control ordenado y profesional del desarrollo.
+
+---
+
+## 💡 Recomendaciones
+
+- Usar `connectedCallback` y `disconnectedCallback` siempre que se trabaje con temporizadores o listeners en componentes.
+- Documentar el código con comentarios para facilitar su mantenimiento.
+- Hacer capturas desde el navegador y desde VS Code para incluir evidencia visual del funcionamiento.
+- Asegurar que las imágenes estén en la carpeta `img/` para que se visualicen correctamente en GitHub Web.
+
+---
+
+## 📦 Instalación y ejecución del proyecto
 
 ```bash
-git clone https://github.com/paulosk8/lit-binding-task-2025
+git clone https://github.com/TU-USUARIO/lit-binding-task-2025.git
 cd lit-binding-task-2025
-```
+npm install
+npm run serve
