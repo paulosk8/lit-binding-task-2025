@@ -33,7 +33,8 @@ El componente fue desarrollado en el archivo `src/LiveClock.js`, y su punto de e
 
 ### 🔸 Código fuente del componente
 
-![Código del componente](./img/codigo-componente.png)
+![Código del componente](./img/codigo-componente.jpg)
+![Código del componente](./img/codigo-componente2.jpg)
 
 - `connectedCallback()` inicia el reloj con `setInterval`.
 - `disconnectedCallback()` lo limpia con `clearInterval`.
@@ -45,13 +46,13 @@ El componente fue desarrollado en el archivo `src/LiveClock.js`, y su punto de e
 
 ### 🔹 Formato 24 horas
 
-![Vista 24 horas](./img/reloj-ejecucion-24h.png)
+![Vista 24 horas](./img/reloj-ejecucion-24h.jpg)
 
 ---
 
 ### 🔹 Formato 12 horas
 
-![Vista 12 horas](./img/reloj-ejecucion-12h.png)
+![Vista 12 horas](./img/reloj-ejecucion-12h.jpg)
 
 ---
 
